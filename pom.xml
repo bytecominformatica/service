@@ -12,13 +12,14 @@
 		<!-- Jetty -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlet</artifactId>
-			<version>7.6.0.v20120127</version>
+			<artifactId>jetty-servlets</artifactId>
+			<version>9.3.0.M1</version>
 		</dependency>
+			
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>7.6.0.v20120127</version>
+			<version>9.3.0.M1</version>
 		</dependency>
 
 		<!-- Jersey -->
@@ -46,6 +47,13 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>2.11.3</version>
 		</dependency>
+		<!-- habilita o cors -->
+		<dependency>
+            <groupId>com.airhacks</groupId>
+            <artifactId>jaxrs-cors</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
