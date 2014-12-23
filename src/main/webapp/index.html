@@ -1,10 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Bytecom service</title>
-<body>
 
-<h1 class="alert alert-success">Bytecom Service online!</h1>
+<head>
+<title>Bytecom</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+	<div ng-app="" ng-controller="formController">
+		<form novalidate>
+			Login:<br> <input type="text" ng-model="user.login"><br>
+			Senha:<br> <input type="password" ng-model="user.senha">
+			<br> <br>
+			<button ng-click="login()">Login</button>
+			<button type="reset">Limpar</button>
+		</form>
+		<p>form = {{user}}</p>
+		<p>master = {{master}}</p>
+	</div>
+
+	<script>
+		function formController ($scope, $http) {
+		    $scope.login = function() {
+		    	$http.post("https://bytecom.herokuapp.com/services/securyte/login?usuario=clairton&senha=admin")
+		        .success(function(response) {
+			        console.log(response);
+		        });
+		    };
+		    $scope.login();
+		};
+	</script>
+
 </body>
 </html>
