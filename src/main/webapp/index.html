@@ -21,15 +21,57 @@
 	</div>
 
 	<script>
+		
+		function createCORSRequest(method, url) {
+		  var xhr = new XMLHttpRequest();
+		  if ("withCredentials" in xhr) {
+			// XHR for Chrome/Firefox/Opera/Safari.
+			xhr.open(method, url, true);
+		  } else if (typeof XDomainRequest != "undefined") {
+			// XDomainRequest for IE.
+			xhr = new XDomainRequest();
+			xhr.open(method, url);
+		  } else {
+			// CORS not supported.
+			xhr = null;
+		  }
+		  
+		   // Response handlers.
+		  xhr.onload = function() {
+			var text = xhr.responseText;
+			var title = getTitle(text);
+			alert('Response from CORS request to ' + url + ': ' + title);
+		  };
+
+		  xhr.onerror = function() {
+			alert('Woops, there was an error making the request.');
+		  };
+
+		  return xhr;
+		}
+		
+		
+		
 		function formController ($scope, $http) {
 		    $scope.login = function() {
-		    	$http.post("https://bytecom.herokuapp.com/services/securyte/login?usuario=clairton&senha=admin")
-		        .success(function(response) {
-			        console.log(response);
-		        });
+			  var xhr = createCORSRequest('GET', 'https://bytecom.herokuapp.com/services/time');
+			  if (!xhr) {
+				alert('CORS not supported');
+				
+				return;
+			  } else {
+				  alert(xhr.responseText);
+			  }
+		    	//$http.get("https://bytecom.herokuapp.com/services/time")
+		        //.success(function(response) {
+			     //   console.log(response);
+		        //});
 		    };
 		    $scope.login();
 		};
+		
+		
+		
 	</script>
 
 </body>
