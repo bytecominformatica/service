@@ -9,13 +9,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+		
 		<!-- Jetty -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlets</artifactId>
 			<version>9.3.0.M1</version>
 		</dependency>
-			
+
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
@@ -41,7 +48,7 @@
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
@@ -49,11 +56,11 @@
 		</dependency>
 		<!-- habilita o cors -->
 		<dependency>
-            <groupId>com.airhacks</groupId>
-            <artifactId>jaxrs-cors</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
+			<groupId>com.airhacks</groupId>
+			<artifactId>jaxrs-cors</artifactId>
+			<version>0.0.1</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
