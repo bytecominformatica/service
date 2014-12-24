@@ -54,13 +54,7 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>2.11.3</version>
 		</dependency>
-		<!-- habilita o cors -->
-		<dependency>
-			<groupId>com.airhacks</groupId>
-			<artifactId>jaxrs-cors</artifactId>
-			<version>0.0.1</version>
-			<scope>compile</scope>
-		</dependency>
+		
 	</dependencies>
 
 	<build>
